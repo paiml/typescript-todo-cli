@@ -1,0 +1,46 @@
+{
+  "name": "ts7-todo",
+  "version": "0.1.0",
+  "description": "A small todo list for the command line, written in TypeScript 7",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "todo": "dist/cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/todos.d.mts",
+      "default": "./dist/todos.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint --type-aware --deny-warnings src",
+    "format": "prettier --check src",
+    "test": "node --test 'src/*.test.ts'",
+    "typetest": "vitest run --typecheck.only",
+    "check": "npm run typecheck && npm run lint && npm run format && npm test && npm run typetest",
+    "build": "tsdown",
+    "prepack": "npm run build",
+    "contracts": "node --test test/contracts.test.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.9",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2004",
+    "prettier": "3.9.10",
+    "tsdown": "0.23.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  }
+}

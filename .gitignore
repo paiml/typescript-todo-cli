@@ -1,0 +1,11 @@
+node_modules/
+# What the build and npm pack write.
+dist/
+*.tgz
+# The todo file the CLI writes when you follow along, and output you redirect.
+todos.json
+out.txt
+# The clean folder the packed CLI is installed into.
+try/
+# Temporary copies the check programs make, and remove, while they run.
+.check-*/
